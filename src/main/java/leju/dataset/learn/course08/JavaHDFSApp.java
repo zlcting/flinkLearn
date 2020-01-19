@@ -1,9 +1,7 @@
 package leju.dataset.learn.course08;
 
-import leju.dataset.learn.course03.StreamingWCJavaApp;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.fs.bucketing.BucketingSink;
 
 
