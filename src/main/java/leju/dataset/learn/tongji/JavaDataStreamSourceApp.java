@@ -1,5 +1,5 @@
-package leju.dataset.learn.course05;
-
+package leju.dataset.learn.tongji;
+import leju.dataset.learn.course05.JavaCustomParallelSourceFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -29,7 +29,7 @@ public class JavaDataStreamSourceApp {
 
 
     public static void nonParallelSourceFunction(StreamExecutionEnvironment env){
-        DataStreamSource<Long> data = env.addSource(new JavaCustomNonParallelSourceFunction());
+        DataStreamSource<String> data = env.addSource(new SourceFunction());
         data.print().setParallelism(1);
     }
 

@@ -1,9 +1,11 @@
 package leju.dataset.learn.course08;
 
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
+import org.apache.flink.util.Collector;
 
 
 import java.util.Properties;
@@ -17,7 +19,12 @@ public class JavakafkaApp {
         properties.setProperty("zookeeper.connect", "10.208.86.17:2181");
         properties.setProperty("group.id", "grouptest");
         DataStream<String> stream = env.addSource(new FlinkKafkaConsumer("test", new SimpleStringSchema(), properties));
-        stream.print();
+        stream.flatMap(new FlatMapFunction<String, String>() {
+            @Override
+            public void flatMap(String value, Collector<String> out) throws Exception {
+                
+            }
+        }).print();
         env.execute("Flink Streaming Java API Skeleton");
     }
 }
