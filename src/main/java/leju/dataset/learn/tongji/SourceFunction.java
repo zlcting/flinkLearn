@@ -41,7 +41,7 @@ public class SourceFunction implements ParallelSourceFunction<String> {
     }
 
     private static long getTraffic() {
-        return new Random().nextInt(1000);
+        return new Random().nextInt(10000);
     }
 
     private static String getDomain() {
